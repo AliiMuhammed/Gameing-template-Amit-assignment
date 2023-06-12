@@ -1,73 +1,272 @@
-*{
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    text-decoration: none;
-    font-family:Arial, Helvetica, sans-serif;
+/*Header: background-color: rgba(0, 0, 0, 0.6);
+Text Hover and button hover background colors: color:#dd007a;
+first section and cards overlay color: background: linear-gradient(to right, rgba(227, 1, 114, 0.8), rgba(0, 0, 0, 0.8));
+second section background: background-color: #1291b4;*/
+
+:root {
+  --main-hover: #ff009d;
 }
 
-header{
-    background-color: brown;
-    position: relative;
+* {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  background: linear-gradient(
+    90deg,
+    rgba(9, 64, 121, 1) 46%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
 
-nav{
-    padding: 20px;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.20);
-    width: 10%;
-    position: absolute;
-    position: fixed;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #fff;
-    text-align: center;
-    transition: 1s;
+header {
+  position: relative;
 }
-nav:hover{
-    width: 20%;
+
+section {
+  padding: 25px 0;
+  margin: 50px 0;
 }
-nav:hover .links ul li a{
-    font-size: 20px;
+/*########################Start nav############################*/
+nav {
+  padding: 20px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 10%;
+  position: absolute;
+  position: fixed;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+  transition: 1s;
+  z-index: 111111;
+}
+nav:hover {
+  width: 20%;
+}
+nav:hover .sub-menu::after {
+  top: 8px;
+  border-width: 9px;
+}
+nav:hover .links ul li a {
+  font-size: 20px;
 }
 nav .logo {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
-
-
 
 @keyframes rotateLogo {
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(180deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
 }
 .logo img {
-    width: 50%;
-    margin: 20px auto;
-    animation: rotateLogo 1s infinite alternate;
+  width: 50%;
+  margin: 20px auto;
+  animation: rotateLogo 1s infinite alternate;
 }
-nav .links ul li{
-    padding: 20px 0;
-}
-
-nav .links ul li a{
-    color: #fff;
-    font-weight: 500;
-    transition: 1s;
+nav .links ul li {
+  padding: 20px 0;
 }
 
-nav .links ul li a:hover{
-    color: rgb(255, 0, 157);
+nav .links ul li a {
+  color: #fff;
+  font-weight: 500;
+  transition: 1s;
 }
-.sub-menu{
-    display: none;
+
+nav .links ul li a:hover {
+  color: var(--main-hover);
+}
+.sub-menu {
+  position: relative;
+}
+.sub-menu::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 6px;
+  width: 0;
+  border: 7px solid;
+  border-color: #fff transparent transparent transparent;
+  transition: 1s;
+}
+
+nav .links ul li .sub-menu:hover.sub-menu::after {
+  border-color: var(--main-hover) transparent transparent transparent;
+}
+.menu {
+  display: none;
+  position: absolute;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  left: -70%;
+  padding: 10%;
+}
+
+.sub-menu:hover .menu {
+  display: block;
+}
+
+/*########################End nav############################*/
+
+/*########################strat main header############################*/
+.main-header {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../images/bg.jpg);
+  background-size: cover;
+  position: relative;
+}
+
+.main-header::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 157, 0.7),
+    rgba(0, 0, 0, 0.7)
+  );
+}
+
+.main-header .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  z-index: 1;
+}
+.main-header .content h1 {
+  text-transform: capitalize;
+  padding: 10px 0;
+  font-size: 40px;
+}
+.main-header .content h1 span {
+  color: var(--main-hover);
+}
+.main-header .content p {
+  padding: 20px 0;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.main-header .content .btn-header {
+  margin: 10px 0;
+  width: 80px;
+  text-align: center;
+  padding: 15px;
+  border: 2px solid var(--main-hover);
+  border-radius: 15px;
+  color: #fff;
+  text-transform: capitalize;
+  transition: 1s;
+}
+
+.btn-header:hover {
+  background-color: var(--main-hover);
+}
+
+/*########################end main header############################*/
+
+/*#############################game play section#########################*/
+
+.game-play {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container h1 {
+  font-size: 35px;
+  padding: 10px 0;
+  border-bottom: 3px solid var(--main-hover);
+  color: #fff;
+}
+
+.games-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 25px 0;
+  flex-wrap: wrap;
+}
+
+.games-card .card {
+  width: 395px;
+  height: 600px;
+  /* background-color: rebeccapurple; */
+  margin: 25px 20px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 157, 0.7),
+    rgba(0, 0, 0, 0.7)
+  );
+  transition: 2s;
+  left: 0;
+  top: 50%;
+}
+
+.card:hover::after {
+  transform: skew(-90deg);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 157, 0.7),
+    rgba(0, 0, 0, 0.7)
+  );
+  transition: 2s;
+  bottom: 50%;
+}
+
+.card:hover::before {
+  transform: skew(-90deg);
+}
+
+.card img {
+  width: 100%;
 }
