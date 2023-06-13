@@ -4,7 +4,7 @@ first section and cards overlay color: background: linear-gradient(to right, rgb
 second section background: background-color: #1291b4;*/
 
 :root {
-  --main-hover: #ff009d;
+  --main-hover: #f70776;
 }
 
 * {
@@ -16,11 +16,7 @@ second section background: background-color: #1291b4;*/
 }
 
 body {
-  background: linear-gradient(
-    90deg,
-    rgba(9, 64, 121, 1) 46%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background: linear-gradient(45deg, #132743, #5585b5)
 }
 
 header {
@@ -36,7 +32,7 @@ nav {
   padding: 20px;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.2);
-  width: 10%;
+  width: 5%;
   position: absolute;
   position: fixed;
   right: 0;
@@ -109,7 +105,7 @@ nav .links ul li .sub-menu:hover.sub-menu::after {
   border-color: var(--main-hover) transparent transparent transparent;
 }
 .menu {
-  display: none;
+  visibility:hidden;
   position: absolute;
   width: 50%;
   background-color: rgba(0, 0, 0, 0.2);
@@ -118,7 +114,7 @@ nav .links ul li .sub-menu:hover.sub-menu::after {
 }
 
 .sub-menu:hover .menu {
-  display: block;
+  visibility: visible;
 }
 
 /*########################End nav############################*/
@@ -139,11 +135,7 @@ nav .links ul li .sub-menu:hover.sub-menu::after {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 0, 157, 0.7),
-    rgba(0, 0, 0, 0.7)
-  );
+  background: linear-gradient(90deg, rgba(247, 7, 118, 0.7), black)
 }
 
 .main-header .content {
@@ -175,7 +167,7 @@ nav .links ul li .sub-menu:hover.sub-menu::after {
   width: 80px;
   text-align: center;
   padding: 15px;
-  border: 2px solid var(--main-hover);
+  border: 2px solid rgba(247, 7, 118, 1);
   border-radius: 15px;
   color: #fff;
   text-transform: capitalize;
@@ -183,7 +175,7 @@ nav .links ul li .sub-menu:hover.sub-menu::after {
 }
 
 .btn-header:hover {
-  background-color: var(--main-hover);
+  background-color: rgba(247, 7, 118, 1);
 }
 
 /*########################end main header############################*/
@@ -195,6 +187,7 @@ nav .links ul li .sub-menu:hover.sub-menu::after {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  
 }
 .container {
   display: flex;
@@ -216,21 +209,27 @@ nav .links ul li .sub-menu:hover.sub-menu::after {
   justify-content: space-evenly;
   padding: 25px 0;
   flex-wrap: wrap;
+  width: 80%;
 }
 
 .games-card .card {
-  width: 395px;
+  width: 26%;
   height: 600px;
-  /* background-color: rebeccapurple; */
   margin: 25px 20px;
-  position: relative;
   overflow: hidden;
-  border-radius: 10px;
   display: flex;
   align-items: center;
-}
 
-.card::after {
+}
+.game-img{
+  width: 100%;
+  position: relative;
+}
+.game-img img{
+  width: 100%;
+
+}
+.game-play .game-img::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -240,16 +239,16 @@ nav .links ul li .sub-menu:hover.sub-menu::after {
     rgba(255, 0, 157, 0.7),
     rgba(0, 0, 0, 0.7)
   );
-  transition: 2s;
+  transition: 1.5s;
   left: 0;
   top: 50%;
 }
 
-.card:hover::after {
+.game-play .game-img:hover::after {
   transform: skew(-90deg);
 }
 
-.card::before {
+.game-play .game-img::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -259,14 +258,85 @@ nav .links ul li .sub-menu:hover.sub-menu::after {
     rgba(255, 0, 157, 0.7),
     rgba(0, 0, 0, 0.7)
   );
-  transition: 2s;
+  transition: 1.5s;
   bottom: 50%;
 }
 
-.card:hover::before {
+.game-play .game-img:hover::before {
   transform: skew(-90deg);
 }
 
-.card img {
+/*#############################end game play section#########################*/
+
+
+/*#############################start game play section#########################*/
+.race-games .card .game-img{
+  overflow: hidden;
+  position: relative;
+}
+.race-games .game-img img{
+  display: block
+}
+.race-games .game-img::after{
+  content: "";
+  background:linear-gradient(90deg, rgba(247, 7, 118, 0.7), black);
+  position: absolute;
   width: 100%;
+  height: 100%;
+  top: 100%;
+  transition: 1.5s;
+}
+.race-games .game-img:hover::after {
+  top: 0;
+}
+.race-games .game-img:hover .img-btn{
+  opacity: 1;
+}
+
+
+.img-btn{
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 1;
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid black;
+  transition: 1s;
+  opacity: 0;
+  text-transform: capitalize;
+}
+.img-btn:hover{
+  background-color: var(--main-hover);
+  border-color: var(--main-hover);
+}
+
+/*#############################end game play section#########################*/
+.zombie-games .card .game-img {
+  overflow: hidden;
+  position: relative;
+}
+
+.zombie-games .game-img img {
+  display: block
+}
+
+.zombie-games .game-img::after {
+  content: "";
+  background: linear-gradient(90deg, rgba(247, 7, 118, 0.7), black);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 100%;
+  transition: 1.5s;
+}
+
+.zombie-games .game-img:hover::after {
+  top: 0;
+}
+
+.zombie-games .game-img:hover .img-btn {
+  opacity: 1;
 }
